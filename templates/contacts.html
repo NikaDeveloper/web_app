@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}Контакты — {{ super() }}{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Наши контакты</h1>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Адрес</h5>
+                <p class="card-text">г. Москва, ул. Примерная, д. 123</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Телефон</h5>
+                <p class="card-text">+7 (495) 123-45-67</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Форма для дополнительного задания -->
+<form method="POST" class="mt-4">
+    <div class="mb-3">
+        <label for="name" class="form-label">Ваше имя</label>
+        <input type="text" class="form-control" id="name" name="name">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email">
+    </div>
+    <div class="mb-3">
+        <label for="message" class="form-label">Сообщение</label>
+        <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+{% endblock %}

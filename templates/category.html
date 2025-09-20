@@ -1,10 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}Категория: Электроника — {{ super() }}{% endblock %}
+
+{% block content %}
+<!-- Хлебные крошки -->
+<nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Главная</a></li>
+        <li class="breadcrumb-item"><a href="/catalog">Каталог</a></li>
+        <li class="breadcrumb-item active">Электроника</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <!-- Сайдбар с фильтрами -->
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Фильтры</h5>
+            </div>
+            <div class="card-body">
+                <!-- Фильтр по цене -->
+                <div class="mb-3">
+                    <h6>Цена, ₽</h6>
+                    <div class="row g-2">
+                        <div class="col">
+                            <input type="number" class="form-control" placeholder="От">
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" placeholder="До">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фильтр по бренду -->
+                <div class="mb-3">
+                    <h6>Бренд</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="brand1">
+                        <label class="form-check-label" for="brand1">Samsung</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="brand2">
+                        <label class="form-check-label" for="brand2">Apple</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="brand3">
+                        <label class="form-check-label" for="brand3">Xiaomi</label>
+                    </div>
+                </div>
+
+                <!-- Фильтр по наличию -->
+                <div class="mb-3">
+                    <h6>Наличие</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="inStock" checked>
+                        <label class="form-check-label" for="inStock">В наличии</label>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary w-100">Применить фильтры</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="col-md-9">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Электроника</h2>
+            <span class="text-muted">Найдено 47 товаров</span>
+        </div>
+
+        <!-- Товары категории -->
+        <div class="row">
+            {% for i in range(9) %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <span class="badge bg-success position-absolute top-0 end-0 m-2">В наличии</span>
+                    <img src="https://via.placeholder.com/250x200" class="card-img-top" alt="Товар {{ i+1 }}">
+                    <div class="card-body">
+                        <h6 class="card-title">Смартфон Модель {{ i+1 }}</h6>
+                        <p class="card-text small">Мощный смартфон с отличной камерой и долгим временем работы</p>
+                        <p class="fw-bold text-primary">{{ (i+1) * 19990 }} ₽</p>
+                        <div class="d-flex justify-content-between">
+                            <a href="#" class="btn btn-sm btn-primary">В корзину</a>
+                            <a href="#" class="btn btn-sm btn-outline-secondary">❤️</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

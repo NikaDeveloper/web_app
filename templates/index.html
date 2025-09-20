@@ -1,10 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}Главная — {{ super() }}{% endblock %}
+
+{% block content %}
+<!-- Герой секция -->
+<section class="hero-section bg-primary text-white py-5 mb-5">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold">Добро пожаловать в наш магазин</h1>
+        <p class="lead">Лучшие товары по самым выгодным ценам</p>
+        <a href="/catalog" class="btn btn-light btn-lg mt-3">Перейти в каталог</a>
+    </div>
+</section>
+
+<!-- Популярные товары -->
+<section class="popular-products mb-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Популярные товары</h2>
+        <div class="row">
+            <!-- Товар 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Товар 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Название товара 1</h5>
+                        <p class="card-text">Краткое описание товара. Отличное качество и надежность.</p>
+                        <p class="fw-bold">999 ₽</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="btn btn-primary">В корзину</a>
+                        <a href="#" class="btn btn-outline-secondary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Товар 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Товар 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Название товара 2</h5>
+                        <p class="card-text">Краткое описание товара. Современный дизайн и функциональность.</p>
+                        <p class="fw-bold">1 499 ₽</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="btn btn-primary">В корзину</a>
+                        <a href="#" class="btn btn-outline-secondary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Товар 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Товар 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Название товара 3</h5>
+                        <p class="card-text">Краткое описание товара. Лучшее предложение на рынке.</p>
+                        <p class="fw-bold">2 299 ₽</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="btn btn-primary">В корзину</a>
+                        <a href="#" class="btn btn-outline-secondary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Преимущества -->
+<section class="features bg-light py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="feature-item">
+                    <h3>🚚 Быстрая доставка</h3>
+                    <p>Доставляем заказы по всей России за 1-3 дня</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-item">
+                    <h3>✅ Гарантия качества</h3>
+                    <p>Все товары проходят строгий контроль качества</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-item">
+                    <h3>🛡️ Защита покупателя</h3>
+                    <p>Возврат и обмен товара в течение 14 дней</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

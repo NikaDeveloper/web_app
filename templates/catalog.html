@@ -1,10 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}Каталог — {{ super() }}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Каталог товаров</h1>
+    <div class="d-flex">
+        <select class="form-select me-2">
+            <option>Сортировка: по популярности</option>
+            <option>Сортировка: по цене (возрастание)</option>
+            <option>Сортировка: по цене (убывание)</option>
+            <option>Сортировка: по новизне</option>
+        </select>
+        <button class="btn btn-outline-secondary">
+            <i class="bi bi-filter"></i> Фильтры
+        </button>
+    </div>
+</div>
+
+<!-- Категории -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="d-flex flex-wrap gap-2">
+            <a href="/category" class="btn btn-outline-primary">Все категории</a>
+            <a href="/category" class="btn btn-outline-secondary">Электроника</a>
+            <a href="/category" class="btn btn-outline-secondary">Одежда</a>
+            <a href="/category" class="btn btn-outline-secondary">Дом и сад</a>
+            <a href="/category" class="btn btn-outline-secondary">Красота</a>
+            <a href="/category" class="btn btn-outline-secondary">Спорт</a>
+        </div>
+    </div>
+</div>
+
+<!-- Сетка товаров -->
+<div class="row">
+    {% for i in range(12) %}
+    <div class="col-md-3 mb-4">
+        <div class="card h-100">
+            <img src="https://via.placeholder.com/250x200" class="card-img-top" alt="Товар {{ i+1 }}">
+            <div class="card-body">
+                <h6 class="card-title">Товар {{ i+1 }}</h6>
+                <p class="card-text small">Краткое описание товара номер {{ i+1 }}</p>
+                <p class="fw-bold text-primary">{{ (i+1) * 999 }} ₽</p>
+                <div class="d-flex justify-content-between">
+                    <a href="#" class="btn btn-sm btn-primary">В корзину</a>
+                    <a href="#" class="btn btn-sm btn-outline-secondary">❤️</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Пагинация -->
+<nav aria-label="Page navigation" class="mt-5">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link" href="#">Назад</a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Вперед</a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}
