@@ -3,78 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Мой Магазин{% endblock %}</title>
-    <!-- Bootstrap 5 CSS -->
+    <title>Мой Магазин</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Ваши собственные стили (если нужны) -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <style>
-    .hero-section {
-        background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
-        border-radius: 15px;
-    }
-
-    .card {
-        transition: transform 0.2s ease-in-out;
-        border: none;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-    }
-
-    .feature-item h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .breadcrumb {
-        background: none;
-        padding: 0;
-    }
-</style>
+        .hero-section {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+            border-radius: 15px;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+        .card {
+            transition: transform 0.2s;
+            margin-bottom: 1rem;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Навигационная панель (она будет на всех страницах) -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="/">Мой Магазин</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Главная</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/catalog">Каталог</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contacts">Контакты</a>
-                    </li>
-                </ul>
+            <div class="navbar-nav">
+                <a class="nav-link" href="/">Главная</a>
+                <a class="nav-link" href="/catalog">Каталог</a>
+                <a class="nav-link" href="/contacts">Контакты</a>
             </div>
         </div>
     </nav>
 
-    <!-- Основное содержимое страницы -->
-    <main class="container my-5">
-        {% block content %}
-        {% endblock %}
+    <main class="container my-4">
+        <!-- Содержимое будет вставлено здесь -->
     </main>
 
-    <!-- Подвал (Футер) -->
-    <footer class="bg-dark text-light text-center py-3 mt-5">
+    <footer class="bg-dark text-white text-center py-3 mt-5">
         <div class="container">
             &copy; 2023 Мой Магазин
         </div>
     </footer>
 
-    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

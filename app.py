@@ -1,34 +1,77 @@
-from flask import Flask, render_template, request
+"""
+Простое веб-приложение для отображения HTML-страниц.
+Использует функцию open() для чтения файлов.
+"""
 
-app = Flask(__name__)
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import urllib.parse
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
-        user_data = request.form.to_dict()
-        print("ДАННЫЕ ОТ ПОЛЬЗОВАТЕЛЯ:")
-        for key, value in user_data.items():
-            print(f"{key}: {value}")
-        print("---")
-    return render_template('index.html')
+class SimpleHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        # Определяем какой файл показывать
+        if self.path == '/':
+            file_path = 'templates/index.html'
+        elif self.path == '/catalog':
+            file_path = 'templates/catalog.html'
+        elif self.path == '/category':
+            file_path = 'templates/category.html'
+        elif self.path == '/contacts':
+            file_path = 'templates/contacts.html'
+        else:
+            self.send_error(404, 'Страница не найдена')
+            return
 
-@app.route('/catalog')
-def catalog():
-    return render_template('catalog.html')
+        # Читаем файл через open() как требует задание
+        try:
+            with open(file_path, 'r', encoding='utf-8') as file:
+                content = file.read()
 
-@app.route('/category')
-def category():
-    return render_template('category.html')
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html; charset=utf-8')
+            self.end_headers()
+            self.wfile.write(content.encode('utf-8'))
 
-@app.route('/contacts', methods=['GET', 'POST'])
-def contacts():
-    if request.method == 'POST':
-        user_data = request.form.to_dict()
-        print("ДАННЫЕ ИЗ ФОРМЫ КОНТАКТОВ:")
-        for key, value in user_data.items():
-            print(f"{key}: {value}")
-        print("---")
-    return render_template('contacts.html')
+        except FileNotFoundError:
+            self.send_error(404, 'Файл не найден')
+        except Exception as e:
+            self.send_error(500, f'Ошибка сервера: {str(e)}')
+
+    def do_POST(self):
+        """Обработка POST запросов для формы контактов"""
+        if self.path == '/contacts':
+            # Получаем длину данных
+            content_length = int(self.headers.get('Content-Length', 0))
+            # Читаем данные
+            post_data = self.rfile.read(content_length).decode('utf-8')
+            # Парсим данные формы
+            parsed_data = urllib.parse.parse_qs(post_data)
+
+            # Печатаем данные в консоль
+            print("=" * 50)
+            print("POST ДАННЫЕ ОТ ПОЛЬЗОВАТЕЛЯ:")
+            for key, values in parsed_data.items():
+                print(f"{key}: {values[0]}")
+            print("=" * 50)
+
+            # Перенаправляем обратно на контакты
+            self.send_response(303)  # 303 See Other
+            self.send_header('Location', '/contacts')
+            self.end_headers()
+        else:
+            self.send_error(404, 'Страница не найдена')
+
+
+def run_server(port=8000):
+    """Запускает HTTP сервер"""
+    server = HTTPServer(('', port), SimpleHandler)
+    print(f'✅ Сервер запущен: http://localhost:{port}')
+    print('⏹️  Нажмите Ctrl+C для остановки')
+
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print('\n🛑 Сервер остановлен')
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    run_server()
