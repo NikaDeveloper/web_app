@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Категория: Электроника — Мой Магазин</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            transition: transform 0.2s;
+            margin-bottom: 1rem;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .badge {
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Мой Магазин</a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="/">Главная</a>
+                <a class="nav-link" href="/catalog">Каталог</a>
+                <a class="nav-link" href="/contacts">Контакты</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-4">
+        <!-- Хлебные крошки -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                <li class="breadcrumb-item"><a href="/catalog">Каталог</a></li>
+                <li class="breadcrumb-item active">Электроника</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <!-- Сайдбар с фильтрами -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Фильтры</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Фильтр по цене -->
+                        <div class="mb-3">
+                            <h6>Цена, ₽</h6>
+                            <div class="row g-2">
+                                <div class="col">
+                                    <input type="number" class="form-control" placeholder="От">
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" placeholder="До">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Фильтр по бренду -->
+                        <div class="mb-3">
+                            <h6>Бренд</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="brand1">
+                                <label class="form-check-label" for="brand1">Samsung</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="brand2">
+                                <label class="form-check-label" for="brand2">Apple</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="brand3">
+                                <label class="form-check-label" for="brand3">Xiaomi</label>
+                            </div>
+                        </div>
+
+                        <!-- Фильтр по наличию -->
+                        <div class="mb-3">
+                            <h6>Наличие</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="inStock" checked>
+                                <label class="form-check-label" for="inStock">В наличии</label>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary w-100">Применить фильтры</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Основной контент -->
+            <div class="col-md-9">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Электроника</h2>
+                    <span class="text-muted">Найдено 47 товаров</span>
+                </div>
+
+                <!-- Товары категории -->
+                <div class="row">
+                    <!-- Товар 1 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-2">В наличии</span>
+                            <img src="https://via.placeholder.com/250x200" class="card-img-top" alt="Товар 1">
+                            <div class="card-body">
+                                <h6 class="card-title">Смартфон Модель 1</h6>
+                                <p class="card-text small">Мощный смартфон с отличной камерой и долгим временем работы</p>
+                                <p class="fw-bold text-primary">19 990 ₽</p>
+                                <div class="d-flex justify-content-between">
+                                    <a href="#" class="btn btn-sm btn-primary">В корзину</a>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary">❤️</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Товар 2 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-2">В наличии</span>
+                            <img src="https://via.placeholder.com/250x200" class="card-img-top" alt="Товар 2">
+                            <div class="card-body">
+                                <h6 class="card-title">Смартфон Модель 2</h6>
+                                <p class="card-text small">Мощный смартфон с отличной камерой и долгим временем работы</p>
+                                <p class="fw-bold text-primary">39 980 ₽</p>
+                                <div class="d-flex justify-content-between">
+                                    <a href="#" class="btn btn-sm btn-primary">В корзину</a>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary">❤️</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Товар 3 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-2">В наличии</span>
+                            <img src="https://via.placeholder.com/250x200" class="card-img-top" alt="Товар 3">
+                            <div class="card-body">
+                                <h6 class="card-title">Смартфон Модель 3</h6>
+                                <p class="card-text small">Мощный смартфон с отличной камерой и долгим временем работы</p>
+                                <p class="fw-bold text-primary">59 970 ₽</p>
+                                <div class="d-flex justify-content-between">
+                                    <a href="#" class="btn btn-sm btn-primary">В корзину</a>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary">❤️</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Товар 4 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-2">В наличии</span>
+                            <img src="https://via.placeholder.com/250x200" class="card-img-top" alt="Товар 4">
+                            <div class="card-body">
+                                <h6 class="card-title">Смартфон Модель 4</h6>
+                                <p class="card-text small">Мощный смартфон с отличной камерой и долгим временем работы</p>
+                                <p class="fw-bold text-primary">79 960 ₽</p>
+                                <div class="d-flex justify-content-between">
+                                    <a href="#" class="btn btn-sm btn-primary">В корзину</a>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary">❤️</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Товар 5 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-2">В наличии</span>
+                            <img src="https://via.placeholder.com/250x200" class="card-img-top" alt="Товар 5">
+                            <div class="card-body">
+                                <h6 class="card-title">Смартфон Модель 5</h6>
+                                <p class="card-text small">Мощный смартфон с отличной камерой и долгим временем работы</p>
+                                <p class="fw-bold text-primary">99 950 ₽</p>
+                                <div class="d-flex justify-content-between">
+                                    <a href="#" class="btn btn-sm btn-primary">В корзину</a>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary">❤️</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Товар 6 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-2">В наличии</span>
+                            <img src="https://via.placeholder.com/250x200" class="card-img-top" alt="Товар 6">
+                            <div class="card-body">
+                                <h6 class="card-title">Смартфон Модель 6</h6>
+                                <p class="card-text small">Мощный смартфон с отличной камерой и долгим временем работы</p>
+                                <p class="fw-bold text-primary">119 940 ₽</p>
+                                <div class="d-flex justify-content-between">
+                                    <a href="#" class="btn btn-sm btn-primary">В корзину</a>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary">❤️</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            &copy; 2023 Мой Магазин
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
